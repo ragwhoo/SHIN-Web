@@ -290,10 +290,9 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-900 mb-3">{feature.title}</h3>
                 <p className="text-neutral-500 text-sm leading-relaxed">{feature.description}</p>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
+      </div>
       </div>
     </section>
     <section className="min-h-screen bg-white flex items-center install-section" id="install">
@@ -349,6 +348,7 @@ export default function Home() {
                 <div>✔ installed shin-engine v1.0.0</div>
               </div>
             </div>
+          </div>
           <p className="text-center text-neutral-500 text-lg mt-8">
             — and ship with confidence.
           </p>
