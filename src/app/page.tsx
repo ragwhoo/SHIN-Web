@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import PillNav from "@/components/ui/PillNav"
 import { Footer10 } from "@/components/watermelon-ui/footer-10"
@@ -21,7 +20,7 @@ import {
   type TabContent,
 } from "@/components/ui/terminal-animation";
 
-gsap.registerPlugin(ScrollTrigger);
+const COPY_COMMAND = "npm install -g shin-engine";
 
 const tabs: TabContent[] = [
   {
@@ -100,22 +99,6 @@ export default function Home() {
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    const lenis = new Lenis({ duration: 1.2 });
-    lenis.on("scroll", ScrollTrigger.update);
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
-  const handleGetStarted = () => {
-    const el = document.getElementById("install");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <>
@@ -319,7 +302,7 @@ export default function Home() {
               <div className="ml-auto relative">
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText("npm install -g shin-engine");
+                    navigator.clipboard.writeText(COPY_COMMAND);
                     setCopied(true);
                     setTimeout(() => setCopied(false), 1500);
                   }}
