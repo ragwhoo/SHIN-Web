@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -40,6 +40,7 @@ const tabs: TabContent[] = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
@@ -314,10 +315,19 @@ export default function Home() {
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
               <span className="ml-4 px-3 py-1 text-xs rounded-md bg-zinc-800 text-zinc-100">install</span>
             </div>
-            <div className="p-5 font-mono text-sm space-y-2">
+            <div className="p-5 font-mono text-sm space-y-2 relative">
               <div className="flex items-center gap-2">
                 <span className="text-amber-200">$</span>
-                <span className="text-amber-100">npm install -g shin-engine</span>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("npm install -g shin-engine");
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1500);
+                  }}
+                  className="text-amber-100 hover:text-amber-200 transition-colors cursor-pointer text-left"
+                >
+                  npm install -g shin-engine
+                </button>
                 <span className="w-2 h-5 bg-amber-200/70 animate-pulse" />
               </div>
               <div className="text-amber-100/70 space-y-1">
@@ -326,6 +336,11 @@ export default function Home() {
                 <div>⠙ installing...</div>
                 <div>✔ installed shin-engine v1.0.0</div>
               </div>
+              {copied && (
+                <div className="absolute bottom-3 right-3 bg-amber-100 text-neutral-900 text-xs px-2.5 py-1 rounded font-sans">
+                  Copied!
+                </div>
+              )}
             </div>
           </div>
           <p className="text-center text-neutral-500 text-lg mt-8">
