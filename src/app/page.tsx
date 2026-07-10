@@ -318,15 +318,20 @@ export default function Home() {
             <div className="p-5 font-mono text-sm space-y-2 relative">
               <div className="flex items-center gap-2">
                 <span className="text-amber-200">$</span>
+                <span className="text-amber-100">npm install -g shin-engine</span>
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText("npm install -g shin-engine");
                     setCopied(true);
                     setTimeout(() => setCopied(false), 1500);
                   }}
-                  className="text-amber-100 hover:text-amber-200 transition-colors cursor-pointer text-left"
+                  className="ml-auto text-zinc-500 hover:text-amber-200 transition-colors"
+                  aria-label="Copy install command"
                 >
-                  npm install -g shin-engine
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
                 </button>
                 <span className="w-2 h-5 bg-amber-200/70 animate-pulse" />
               </div>
@@ -337,7 +342,7 @@ export default function Home() {
                 <div>✔ installed shin-engine v1.0.0</div>
               </div>
               {copied && (
-                <div className="absolute bottom-3 right-3 bg-amber-100 text-neutral-900 text-xs px-2.5 py-1 rounded font-sans">
+                <div className="absolute top-3 right-3 bg-amber-100 text-neutral-900 text-xs px-2.5 py-1 rounded font-sans">
                   Copied!
                 </div>
               )}
