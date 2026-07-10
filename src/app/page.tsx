@@ -38,6 +38,13 @@ const tabs: TabContent[] = [
   },
 ];
 
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Docs", href: "/docs" },
+  { label: "GitHub", href: "https://github.com/ragwhoo/Shin.git", target: "_blank", rel: "noopener noreferrer" },
+  { label: "npm", href: "https://www.npmjs.com/package/shin-engine", target: "_blank", rel: "noopener noreferrer" },
+];
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
   const [copied, setCopied] = useState(false);
@@ -116,12 +123,7 @@ export default function Home() {
         <PillNav
           logo="/shin-logo.png"
           logoAlt="SHIN"
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Docs", href: "/docs" },
-            { label: "GitHub", href: "https://github.com/ragwhoo/Shin.git", target: "_blank", rel: "noopener noreferrer" },
-            { label: "npm", href: "https://www.npmjs.com/package/shin-engine", target: "_blank", rel: "noopener noreferrer" },
-          ]}
+          items={navItems}
           activeHref="/"
           baseColor="#000000"
           pillColor="#ffffff"
