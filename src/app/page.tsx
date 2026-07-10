@@ -314,18 +314,14 @@ export default function Home() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <div className="w-3 h-3 rounded-full bg-green-500/80" />
               <span className="ml-4 px-3 py-1 text-xs rounded-md bg-zinc-800 text-zinc-100">install</span>
-            </div>
-            <div className="p-5 font-mono text-sm space-y-2 relative">
-              <div className="flex items-center gap-2">
-                <span className="text-amber-200">$</span>
-                <span className="text-amber-100">npm install -g shin-engine</span>
+              <div className="ml-auto relative">
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText("npm install -g shin-engine");
                     setCopied(true);
                     setTimeout(() => setCopied(false), 1500);
                   }}
-                  className="ml-auto text-zinc-500 hover:text-amber-200 transition-colors"
+                  className="text-zinc-500 hover:text-amber-200 transition-colors"
                   aria-label="Copy install command"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -333,6 +329,17 @@ export default function Home() {
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                   </svg>
                 </button>
+                {copied && (
+                  <div className="absolute top-full right-0 mt-1 bg-amber-100 text-neutral-900 text-xs px-2.5 py-1 rounded font-sans whitespace-nowrap">
+                    Copied!
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="p-5 font-mono text-sm space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-amber-200">$</span>
+                <span className="text-amber-100">npm install -g shin-engine</span>
                 <span className="w-2 h-5 bg-amber-200/70 animate-pulse" />
               </div>
               <div className="text-amber-100/70 space-y-1">
@@ -341,13 +348,7 @@ export default function Home() {
                 <div>⠙ installing...</div>
                 <div>✔ installed shin-engine v1.0.0</div>
               </div>
-              {copied && (
-                <div className="absolute top-3 right-3 bg-amber-100 text-neutral-900 text-xs px-2.5 py-1 rounded font-sans">
-                  Copied!
-                </div>
-              )}
             </div>
-          </div>
           <p className="text-center text-neutral-500 text-lg mt-8">
             — and ship with confidence.
           </p>
