@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 
@@ -38,7 +38,7 @@ const tabs: TabContent[] = [
 ];
 
 const navItems = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/ragwhoo/Shin.git", target: "_blank", rel: "noopener noreferrer" },
   { label: "npm", href: "https://www.npmjs.com/package/shin-engine", target: "_blank", rel: "noopener noreferrer" },
@@ -47,20 +47,35 @@ const navItems = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
   const [copied, setCopied] = useState(false);
+  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    requestAnimationFrame(() => window.scrollTo(0, 0));
-  }, []);
-
-  useEffect(() => {
     const lenis = new Lenis({ duration: 1.2 });
+    lenisRef.current = lenis;
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-    return () => lenis.destroy();
+
+    requestAnimationFrame(() => {
+      lenis.scrollTo(0, { immediate: false, duration: 1.2 });
+    });
+
+    const handleHomeClick = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement).closest('a');
+      if (link?.getAttribute('href') === '/') {
+        e.preventDefault();
+        lenis.scrollTo(0, { immediate: false, duration: 1.2 });
+      }
+    };
+    document.addEventListener('click', handleHomeClick);
+
+    return () => {
+      lenis.destroy();
+      document.removeEventListener('click', handleHomeClick);
+    };
   }, []);
 
   useEffect(() => {
