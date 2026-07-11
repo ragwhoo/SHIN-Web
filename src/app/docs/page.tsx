@@ -18,7 +18,7 @@ export default function DocsPage() {
   return (
     <div className="min-h-screen bg-white">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-12 sm:h-14 flex items-center justify-between">
           <Link href="/" className="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors">
             ← SHIN
           </Link>
@@ -26,7 +26,7 @@ export default function DocsPage() {
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-6 pt-28 pb-32">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-24 sm:pb-32">
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 leading-[1.15]">
             SHIN Documentation
@@ -163,8 +163,8 @@ export default function DocsPage() {
                 { cmd: "shin status", desc: "Check server status and health" },
                 { cmd: "shin view", desc: "Open the frontend dashboard" },
               ].map((c) => (
-                <div key={c.cmd} className="flex items-center gap-4 py-2">
-                  <code className="text-amber-200 bg-neutral-900 px-3 py-1.5 rounded-lg text-sm font-mono shrink-0">{c.cmd}</code>
+                <div key={c.cmd} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-2">
+                  <code className="text-amber-200 bg-neutral-900 px-3 py-1.5 rounded-lg text-sm font-mono w-fit">{c.cmd}</code>
                   <span className="text-neutral-500 text-sm">{c.desc}</span>
                 </div>
               ))}

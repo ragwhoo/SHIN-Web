@@ -117,10 +117,10 @@ export default function Home() {
 
       <div className="min-h-screen flex flex-col bg-black relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center pointer-events-none hero-bg" style={{ backgroundImage: "url(/bg2.png)" }} />
-      <div className="flex-1 flex flex-col items-center px-4 pt-32 relative z-10">
-        <div className="text-center mb-16">
+      <div className="flex-1 flex flex-col items-center px-4 pt-24 sm:pt-32 relative z-10">
+        <div className="text-center mb-12 sm:mb-16">
           <h1
-            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[1.1] hero-heading"
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[1.1] hero-heading"
           >
             Engineering,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-300">
@@ -132,7 +132,7 @@ export default function Home() {
           </p>
           <a
             href="#install"
-            className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 hover:border-white/30 transition-all duration-300 hero-cta"
+            className="inline-flex items-center gap-2 mt-6 sm:mt-8 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 hover:border-white/30 transition-all duration-300 hero-cta"
           >
             Get Started
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -216,9 +216,9 @@ export default function Home() {
       </div>
     </div>
     <section className="min-h-screen bg-white why-shin-section">
-      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <div className="text-center mb-20 why-shin-heading reveal">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-neutral-900 leading-[1.1]">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 lg:py-32">
+        <div className="text-center mb-14 md:mb-20 why-shin-heading reveal">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-neutral-900 leading-[1.1]">
             <span className="whitespace-nowrap">Knowledge isn't</span>{" "}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#3b82f6,#93c5fd,#fbcfe8)]">
               EXPERIENCE
@@ -266,7 +266,7 @@ export default function Home() {
           ].map((feature, i) => (
             <div
               key={feature.title}
-              className={`group relative rounded-2xl border border-neutral-200 bg-white p-8 transition-all duration-300 hover:border-neutral-300 hover:shadow-lg hover:-translate-y-1 why-shin-card reveal`}
+              className={`group relative rounded-2xl border border-neutral-200 bg-white p-6 md:p-8 transition-all duration-300 hover:border-neutral-300 hover:shadow-lg hover:-translate-y-1 why-shin-card reveal`}
             >
               <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               <div className="relative z-10">
@@ -282,9 +282,9 @@ export default function Home() {
       </div>
     </section>
     <section className="min-h-screen bg-white flex items-center install-section" id="install">
-      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 w-full">
-        <div className="text-center mb-12 install-heading reveal">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 lg:py-32 w-full">
+        <div className="text-center mb-10 md:mb-12 install-heading reveal">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
             <span className="whitespace-nowrap">Install in</span>
             <br />
             <span className="text-transparent bg-clip-text bg-[linear-gradient(to_right,#3b82f6,#93c5fd,#fbcfe8)]">
@@ -321,7 +321,7 @@ export default function Home() {
                 )}
               </div>
             </div>
-            <div className="p-5 font-mono text-sm space-y-2">
+            <div className="p-4 md:p-5 font-mono text-sm space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-amber-200">$</span>
                 <span className="text-amber-100">npm install -g shin-engine</span>
@@ -335,7 +335,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="text-center text-neutral-500 text-lg mt-8">
+          <p className="text-center text-neutral-500 text-base sm:text-lg mt-6 md:mt-8">
             — and ship with confidence.
           </p>
         </div>
