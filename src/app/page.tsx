@@ -38,7 +38,7 @@ const tabs: TabContent[] = [
 ];
 
 const navItems = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#home" },
   { label: "Docs", href: "/docs" },
   { label: "GitHub", href: "https://github.com/ragwhoo/Shin.git", target: "_blank", rel: "noopener noreferrer" },
   { label: "npm", href: "https://www.npmjs.com/package/shin-engine", target: "_blank", rel: "noopener noreferrer" },
@@ -115,7 +115,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="min-h-screen flex flex-col bg-black relative overflow-hidden">
+      <div id="home" className="min-h-screen flex flex-col bg-black relative overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center pointer-events-none hero-bg" style={{ backgroundImage: "url(/bg2.png)" }} />
       <div className="flex-1 flex flex-col items-center px-4 pt-24 sm:pt-32 relative z-10">
         <div className="text-center mb-12 sm:mb-16">
